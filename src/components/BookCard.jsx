@@ -1,5 +1,37 @@
 //? react imports
 import { useEffect, useState } from "react";
+//? styled components
+import styled from "styled-components";
+import colorPalette from "../colors/color-palette";
+const { mainColor, mainColorDark, secondaryColor, secondaryColorDark, danger } = colorPalette;
+const Card = styled.div`
+  width: 100%;
+  background: ${secondaryColorDark};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+`;
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+const ContentText = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+const Like = styled.span`
+  color: ${secondaryColor};
+  cursor: pointer;
+  transition: linear 0.2s;
+  &:hover {
+    transform: scale(1.2);
+    color: ${danger};
+  }
+`;
 
 function BookCard({ book, likedBooks, setLikedBooks }) {
   //! destructuring props
@@ -21,17 +53,19 @@ function BookCard({ book, likedBooks, setLikedBooks }) {
     setIsLiked((prevS) => !prevS);
   };
   return (
-    <div>
-      <div>
+    <Card>
+      <Content>
         <img src={`images/${image}`} />
-        <div>
+        <ContentText>
           <h2>{title}</h2>
           <p>{author}</p>
           <p>{country + " | " + pages + " Pages"}</p>
-        </div>
-      </div>
-      <button onClick={likeHandle}>{isLiked ? "liked" : "like"}</button>
-    </div>
+        </ContentText>
+      </Content>
+      <Like onClick={likeHandle} className={isLiked ? "liked" : null}>
+        {isLiked ? "liked" : "like"}
+      </Like>
+    </Card>
   );
 }
 

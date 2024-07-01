@@ -8,6 +8,7 @@
   padding: 0;
   margin: 0;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -19,4 +20,13 @@ body {
 
 a {
   color: var(--main-text);
+}
+
+img {
+  width: 60px;
+  border-radius: 5px;
+}
+
+.liked {
+  color: #ff0000 !important;
 }
