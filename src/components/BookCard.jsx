@@ -1,6 +1,8 @@
+//? react imports
 import React from "react";
 
-function BookCard({ book: { title, country, pages, author, image } }) {
+function BookCard({ book }) {
+  const { title, country, pages, author, image } = book;
   return (
     <div>
       <div>

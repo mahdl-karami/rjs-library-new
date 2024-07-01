@@ -1,4 +1,6 @@
+//? react imports
 import React from "react";
+//! import components
 import BookCard from "./BookCard";
 
 function BookTable({books}) {

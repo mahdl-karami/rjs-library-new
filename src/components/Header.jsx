@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
+//? react imports
+import { useEffect, useState } from "react";
 
-function Header({ books, setBooks }) {
+function Header({ initialBooks, setBooks }) {
   const [search, setSearch] = useState("");
-  const searchHandle = (ev) => {
-    ev.preventDefault();
-    setSearch(ev.target.value);
-  };
+  //! side effects
   useEffect(() => {
     console.log(search);
-    const newBooks = books.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
+    const newBooks = initialBooks.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
     setBooks(newBooks);
   }, [search]);
   return (
     <header>
       <div className="header">
-        <input value={search} type="text" placeholder="Search" onChange={(ev) => searchHandle(ev)} />
+        <input value={search} type="text" placeholder="Search" onChange={({ target }) => setSearch(target.value)} />
         <a href="https://github.com/mahdl-karami">icon</a>
       </div>
     </header>

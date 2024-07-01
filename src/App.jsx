@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+//? react imports
+import { useState } from "react";
+//! import components
 import Layout from "./components/Layout";
 import BookTable from "./components/BookTable";
 import initialBooks from "./constants/books";
@@ -6,7 +8,7 @@ import initialBooks from "./constants/books";
 function App() {
   const [books, setBooks] = useState(initialBooks);
   return (
-    <Layout books={initialBooks} setBooks={setBooks}>
+    <Layout initialBooks={initialBooks} setBooks={setBooks}>
       <BookTable books={books} />
     </Layout>
   );
