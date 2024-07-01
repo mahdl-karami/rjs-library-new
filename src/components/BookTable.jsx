@@ -1,8 +1,7 @@
 import React from "react";
-import books from "../constants/books";
 import BookCard from "./BookCard";
 
-function BookTable() {
+function BookTable({books}) {
   return (
     <div>
       {books.map((book, i) => (

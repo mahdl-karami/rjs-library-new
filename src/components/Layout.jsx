@@ -4,7 +4,7 @@ import Header from "./Header";
 function Layout(props) {
   return (
     <>
-      <Header />
+      <Header books={props.books} setBooks={props.setBooks} />
       {props.children}
     </>
   );

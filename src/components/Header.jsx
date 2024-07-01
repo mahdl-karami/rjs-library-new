@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function Header() {
+function Header({ books, setBooks }) {
   const [search, setSearch] = useState("");
   const searchHandle = (ev) => {
     ev.preventDefault();
     setSearch(ev.target.value);
   };
+  useEffect(() => {
+    console.log(search);
+    const newBooks = books.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
+    setBooks(newBooks);
+  }, [search]);
   return (
     <header>
       <div className="header">
