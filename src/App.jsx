@@ -1,9 +1,12 @@
 import React from 'react'
 import Layout from './components/Layout'
+import BookTable from './components/BookTable'
 
 function App() {
   return (
-    <Layout>App</Layout>
+    <Layout>
+      <BookTable />
+    </Layout>
   )
 }
 
