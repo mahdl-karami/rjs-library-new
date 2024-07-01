@@ -1,5 +1,7 @@
 //? react imports
 import { useEffect, useState } from "react";
+//? import icons
+import { PiHeartFill } from "react-icons/pi";
 //? styled components
 import styled from "styled-components";
 import colorPalette from "../colors/color-palette";
@@ -11,6 +13,7 @@ const Card = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  border-radius: 5px;
 `;
 const Content = styled.div`
   display: flex;
@@ -27,6 +30,7 @@ const Like = styled.span`
   color: ${secondaryColor};
   cursor: pointer;
   transition: linear 0.2s;
+  font-size: 1.8em;
   &:hover {
     transform: scale(1.2);
     color: ${danger};
@@ -63,7 +67,7 @@ function BookCard({ book, likedBooks, setLikedBooks }) {
         </ContentText>
       </Content>
       <Like onClick={likeHandle} className={isLiked ? "liked" : null}>
-        {isLiked ? "liked" : "like"}
+        <PiHeartFill />
       </Like>
     </Card>
   );
