@@ -9,9 +9,7 @@ function Header() {
   return (
     <header>
       <div className="header">
-        <form onChange={(ev) => searchHandle(ev)}>
-          <input value={search} type="text" placeholder="Search" />
-        </form>
+        <input value={search} type="text" placeholder="Search" onChange={(ev) => searchHandle(ev)} />
         <a href="https://github.com/mahdl-karami">icon</a>
       </div>
     </header>
