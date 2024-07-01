@@ -5,7 +5,6 @@ function Header({ initialBooks, setBooks }) {
   const [search, setSearch] = useState("");
   //! side effects
   useEffect(() => {
-    console.log(search);
     const newBooks = initialBooks.filter((book) => book.title.toLowerCase().includes(search.toLowerCase()));
     setBooks(newBooks);
   }, [search]);
