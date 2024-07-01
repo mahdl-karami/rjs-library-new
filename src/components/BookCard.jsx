@@ -29,17 +29,23 @@ const ContentText = styled.div`
 const Like = styled.span`
   color: ${secondaryColor};
   cursor: pointer;
-  transition: linear 0.2s;
+  transition: ease 0.2s;
   font-size: 1.8em;
   &:hover {
     transform: scale(1.2);
     color: ${danger};
   }
 `;
+const Link = styled.a`
+  transition: all 0.3s ease;
+  &:hover {
+    color: ${mainColor};
+  }
+`;
 
 function BookCard({ book, likedBooks, setLikedBooks }) {
   //! destructuring props
-  const { title, country, pages, author, image } = book;
+  const { title, country, pages, author, image, link } = book;
   //! states
   const [isLiked, setIsLiked] = useState(likedBooks.filter((likedBook) => likedBook.title == book.title).length);
   //! side effects
@@ -59,9 +65,14 @@ function BookCard({ book, likedBooks, setLikedBooks }) {
   return (
     <Card>
       <Content>
-        <img src={`images/${image}`} />
+        <Link target="_blank" href={link}>
+          <img src={`images/${image}`} />
+        </Link>
+
         <ContentText>
-          <h2>{title}</h2>
+          <Link target="_blank" href={link}>
+            <h2>{title}</h2>
+          </Link>
           <p>{author}</p>
           <p>{country + " | " + pages + " Pages"}</p>
         </ContentText>
