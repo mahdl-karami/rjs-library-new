@@ -5,7 +5,7 @@ function BookCard({ book, likedBooks, setLikedBooks }) {
   //! destructuring props
   const { title, country, pages, author, image } = book;
   //! states
-  const [isLiked, setIsLiked] = useState(0);
+  const [isLiked, setIsLiked] = useState(likedBooks.filter((likedBook) => likedBook.title == book.title).length);
   //! side effects
   useEffect(() => {
     if (isLiked) {
