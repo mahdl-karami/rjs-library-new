@@ -1,9 +1,11 @@
 //? react imports
 import { useEffect, useState } from "react";
+//? import icons
+import { FaGithub } from "react-icons/fa";
 //? styled components
 import styled from "styled-components";
 import colorPalette from "../colors/color-palette";
-const { mainColor, mainColorDark, secondaryColor, secondaryColorDark, danger } = colorPalette;
+const { mainColor, secondaryColor, secondaryColorDark } = colorPalette;
 const Head = styled.header`
   width: 100%;
   display: flex;
@@ -25,7 +27,10 @@ const Input = styled.input`
     color: ${secondaryColorDark};
   }
 `;
-
+const GitHub = styled.a`
+  font-size: 2em;
+  color: ${mainColor};
+`;
 function Header({ initialBooks, setBooks }) {
   const [search, setSearch] = useState("");
   //! side effects
@@ -36,9 +41,9 @@ function Header({ initialBooks, setBooks }) {
   return (
     <Head>
       <Input value={search} type="text" placeholder="Search" onChange={({ target }) => setSearch(target.value)} />
-      <a target="_Blank" href="https://github.com/mahdl-karami">
-        icon
-      </a>
+      <GitHub target="_Blank" href="https://github.com/mahdl-karami">
+        <FaGithub />
+      </GitHub>
     </Head>
   );
 }
