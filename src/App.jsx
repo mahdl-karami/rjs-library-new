@@ -16,7 +16,7 @@ function App() {
   });
   return (
     <Layout initialBooks={initialBooks} setBooks={setBooks}>
-      <BookTable books={books} likedBooks={likedBooks} setLikedBooks={setLikedBooks} />
+      {books.length ? <BookTable books={books} likedBooks={likedBooks} setLikedBooks={setLikedBooks} /> : <h2>Nothing in here</h2>}
     </Layout>
   );
 }
